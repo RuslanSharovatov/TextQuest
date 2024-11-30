@@ -1,0 +1,88 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #1e1e2e;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер для квеста */
+#quest-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #282a36;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Заголовок */
+#quest-title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8be9fd;
+}
+
+/* Основной текст */
+#quest-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #f8f8f2;
+}
+
+/* Выборы */
+.choice {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background-color: #44475a;
+    color: #f8f8f2;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.choice:hover {
+    background-color: #6272a4;
+    border-color: #8be9fd;
+    color: #ffffff;
+}
+
+.choice:active {
+    background-color: #50fa7b;
+    color: #000000;
+    border-color: #50fa7b;
+}
+
+/* Подсказки или дополнительный текст */
+.hint {
+    font-size: 0.9em;
+    color: #6272a4;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    #quest-container {
+        padding: 15px;
+    }
+
+    #quest-title {
+        font-size: 1.5em;
+    }
+
+    #quest-text {
+        font-size: 1em;
+    }
+
+    .choice {
+        font-size: 1em;
+        padding: 8px 12px;
+    }
+}
