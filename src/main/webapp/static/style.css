@@ -59,13 +59,6 @@ body {
     border-color: #50fa7b;
 }
 
-/* Подсказки или дополнительный текст */
-.hint {
-    font-size: 0.9em;
-    color: #6272a4;
-    margin-top: 10px;
-    text-align: center;
-}
 
 /* Адаптивность */
 @media (max-width: 600px) {

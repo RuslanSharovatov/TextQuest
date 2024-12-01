@@ -6,28 +6,51 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/start")
+@WebServlet(name = "StartServlet", value = "/start")
 public class StartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
-        if(session.getAttribute("win") == null) {
-            session.setAttribute("win", false);
-            session.setAttribute("dead", false);
-            session.setAttribute("begin", false);
-            session.setAttribute("brave", false);
+        if(session.getAttribute("start") == null) {
+            session.setAttribute("start", false);
+            session.setAttribute("choice", "");
         }
 
-        getServletContext().getRequestDispatcher("/start.jsp").forward(req, resp);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String action = req.getParameter("action");
-        switch(action) {
-            case "begin": session.setAttribute("begin", true);
-        }
-        resp.sendRedirect("/start.jsp");
+            if(action != null) {
+                switch (action) {
+                    case "start": session.setAttribute("start", true);
+                    break;
+                    case "brave": session.setAttribute("choice", "brave");
+                    break;
+                    case "noBrave": session.setAttribute("choice", "coward");
+                    break;
+                    case "directly": session.setAttribute("choice", "directly");
+                    break;
+                    case "left": session.setAttribute("choice", "left");
+                    break;
+                    case "right": session.setAttribute("choice", "right");
+                    break;
+                    case "drop": session.setAttribute("choice", "brave");
+                    break;
+                    case "exit": session.setAttribute("choice", "exit");
+                    break;
+                    case "run": session.setAttribute("choice", "brave");
+                    break;
+                    case "search": session.setAttribute("choice", "search");
+                    break;
+                    case "fight": session.setAttribute("choice", "fight");
+                    break;
+                    case "escape": session.setAttribute("choice", "escape");
+                    break;
+                }
+            }
+        resp.sendRedirect("/index.jsp");
     }
 }
